@@ -1,0 +1,4 @@
+Previous move list?
+List of taken pieces
+Undo/redo
+MORE PIECES

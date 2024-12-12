@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sandbox Chess: Play</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <h1>Sandbox Chess: Play</h1>
+    <a href="index.html">Back to home</a><br/>
+    <canvas id="canvas" width="800" height="600"></canvas><br/>
+    <button onclick="loadFromTextarea()">Load setup from text</button>
+    <button onclick="saveToTextarea()">Save setup to text</button><br/>
+    <button onclick="toggleBoardEditMode()" id="editMode">Enable board edit mode</button>
+    <button onclick="changeRows(1)" class="editing">+ rows</button>
+    <button onclick="changeRows(-1)" class="editing">- rows</button>
+    <button onclick="changeCols(1)" class="editing">+ columns</button>
+    <button onclick="changeCols(-1)" class="editing">- columns</button><br/>
+    <textarea id="boardtext" cols="50" rows="20"></textarea>
+    <script src="js/utils.js"></script>
+    <script src="js/draw.js"></script>
+    <script src="js/piece.js"></script>
+    <script src="js/pieces.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/events.js"></script>
+    <script src="js/script.js"></script>
+</html>
