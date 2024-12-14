@@ -112,7 +112,7 @@ class Knight extends Piece {
         ctx.lineTo(0.7, 0.4);
         ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.1);
-        ctx.lineTo(0.3, 0.4);
+        ctx.lineTo(0.2, 0.4);
         ctx.lineTo(0.4, 0.4);
         ctx.closePath();
         ctx.fill();
@@ -131,7 +131,7 @@ class Knight extends Piece {
 class Rook extends _RiderPiece {
     static {super._registerPieceType(this);}
     static pieceName = "Rook";
-    static pieceDescription = "Can move any number of spaces horizontally or vertically.";
+    static pieceDescription = "Can move any number of spaces cardinally.";
     static symbol = "R";
     static directions = [[1, 0]];
 
@@ -291,7 +291,7 @@ class King extends Piece {
 class Queen extends _MovementComboPiece {
     static {super._registerPieceType(this);}
     static pieceName = "Queen";
-    static pieceDescription = "Can move any number of spaces horizontally, vertically, or diagonally.";
+    static pieceDescription = "Can move any number of spaces cardinally or diagonally.";
     static symbol = "Q";
     static constituents = [Rook, Bishop];
 
@@ -329,7 +329,7 @@ class Queen extends _MovementComboPiece {
 class Amazon extends _MovementComboPiece {
     static {super._registerPieceType(this);}
     static pieceName = "Amazon";
-    static pieceDescription = "Can move any number of spaces horizontally, vertically, or diagonally " +
+    static pieceDescription = "Can move any number of spaces cardinally or diagonally " +
                               "OR jump two spaces on one axis and one space on the perpendicular axis.";
     static symbol = "QN";
     static constituents = [Queen, Knight];
@@ -343,7 +343,7 @@ class Amazon extends _MovementComboPiece {
         ctx.lineTo(0.7, 0.45);
         ctx.arc(0.4, 0.45, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.15);
-        ctx.lineTo(0.3, 0.45);
+        ctx.lineTo(0.2, 0.45);
         ctx.lineTo(0.4, 0.45);
         ctx.closePath();
         ctx.fill();
@@ -371,7 +371,7 @@ class Amazon extends _MovementComboPiece {
 class Empress extends _MovementComboPiece {
     static {super._registerPieceType(this);}
     static pieceName = "Empress";
-    static pieceDescription = "Can move any number of spaces horizontally or vertically " +
+    static pieceDescription = "Can move any number of spaces cardinally " +
                               "OR jump two spaces on one axis and one space on the perpendicular axis.";
     static symbol = "RN";
     static constituents = [Rook, Knight];
@@ -385,7 +385,7 @@ class Empress extends _MovementComboPiece {
         ctx.lineTo(0.7, 0.4);
         ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.1);
-        ctx.lineTo(0.3, 0.4);
+        ctx.lineTo(0.2, 0.4);
         ctx.lineTo(0.4, 0.4);
         ctx.closePath();
         ctx.fill();
@@ -420,7 +420,7 @@ class Princess extends _MovementComboPiece {
         ctx.lineTo(0.7, 0.4);
         ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.1);
-        ctx.lineTo(0.3, 0.4);
+        ctx.lineTo(0.2, 0.4);
         ctx.lineTo(0.4, 0.4);
         ctx.closePath();
         ctx.fill();
@@ -453,7 +453,7 @@ class Nightrider extends _RiderPiece {
         ctx.lineTo(0.3, 0.2);
         ctx.arc(0.6, 0.6, 0.3, Math.PI, Math.PI / 2, true);
         ctx.lineTo(0.7, 0.9);
-        ctx.lineTo(0.7, 0.6);
+        ctx.lineTo(0.8, 0.6);
         ctx.lineTo(0.6, 0.6);
         ctx.closePath();
         ctx.fill();
@@ -516,7 +516,7 @@ class _HandicappedRook extends Piece {
 class Wazir extends _HandicappedRook {
     static {super._registerPieceType(this);}
     static pieceName = "Wazir";
-    static pieceDescription = "Moves one space horizontally or vertically.";
+    static pieceDescription = "Moves one space cardinally.";
     static symbol = "W";
     static distance = 1;
 }
@@ -524,7 +524,7 @@ class Wazir extends _HandicappedRook {
 class Dabbaba extends _HandicappedRook {
     static {super._registerPieceType(this);}
     static pieceName = "Dabbaba";
-    static pieceDescription = "Jumps two spaces horizontally or vertically.";
+    static pieceDescription = "Jumps two spaces cardinally.";
     static symbol = "D";
     static distance = 2;
 }
@@ -532,7 +532,7 @@ class Dabbaba extends _HandicappedRook {
 class Threeleaper extends _HandicappedRook {
     static {super._registerPieceType(this);}
     static pieceName = "Threeleaper";
-    static pieceDescription = "Jumps three spaces horizontally or vertically.";
+    static pieceDescription = "Jumps three spaces cardinally.";
     static symbol = "H";
     static distance = 3;
 }
@@ -540,7 +540,7 @@ class Threeleaper extends _HandicappedRook {
 class Fourleaper extends _HandicappedRook {
     static {super._registerPieceType(this);}
     static pieceName = "Fourleaper";
-    static pieceDescription = "Jumps four spaces horizontally or vertically.";
+    static pieceDescription = "Jumps four spaces cardinally.";
     static symbol = "R4";
     static distance = 4;
 }
@@ -640,7 +640,7 @@ class Camel extends _HippogonalLeaper {
         ctx.arc(0.7, 0.5, 0.1, Math.PI / 2, -Math.PI / 2, true);
         ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.1);
-        ctx.lineTo(0.3, 0.4);
+        ctx.lineTo(0.2, 0.4);
         ctx.lineTo(0.4, 0.4);
         ctx.closePath();
         ctx.fill();
@@ -671,7 +671,7 @@ class Zebra extends _HippogonalLeaper {
         ctx.lineTo(0.7, 0.4);
         ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.1);
-        ctx.lineTo(0.3, 0.4);
+        ctx.lineTo(0.2, 0.4);
         ctx.lineTo(0.4, 0.4);
         ctx.closePath();
         ctx.fill();
@@ -708,7 +708,7 @@ class Giraffe extends _HippogonalLeaper {
         ctx.lineTo(0.7, 0.4);
         ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.1);
-        ctx.lineTo(0.3, 0.4);
+        ctx.lineTo(0.2, 0.4);
         ctx.lineTo(0.4, 0.4);
         ctx.closePath();
         ctx.fill();
@@ -749,7 +749,7 @@ class Stag extends _HippogonalLeaper {
         ctx.lineTo(0.7, 0.4);
         ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.1);
-        ctx.lineTo(0.3, 0.4);
+        ctx.lineTo(0.2, 0.4);
         ctx.lineTo(0.4, 0.4);
         ctx.closePath();
         ctx.fill();
@@ -788,7 +788,7 @@ class Antelope extends _HippogonalLeaper {
         ctx.lineTo(0.7, 0.4);
         ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
         ctx.lineTo(0.3, 0.1);
-        ctx.lineTo(0.3, 0.4);
+        ctx.lineTo(0.2, 0.4);
         ctx.lineTo(0.4, 0.4);
         ctx.closePath();
         ctx.fill();
@@ -811,7 +811,7 @@ class Antelope extends _HippogonalLeaper {
 class Champion extends _MovementComboPiece {
     static {super._registerPieceType(this);}
     static pieceName = "Champion";
-    static pieceDescription = "Jumps one or two squares horizontally or vertically or two squares diagonally.";
+    static pieceDescription = "Jumps one or two squares cardinally or two squares diagonally.";
     static symbol = "WAD";
     static constituents = [Wazir, Alfil, Dabbaba];
 
@@ -921,5 +921,129 @@ class Barc extends Piece {
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
+    }
+}
+
+class Mann extends Piece {
+    static {super._registerPieceType(this);}
+    static pieceName = "Mann";
+    static pieceDescription = "Moves one space in any direction.";
+    static symbol = "M";
+
+    pieceCanMoveTo(board, position) {
+        return Math.abs(this.row - position[0]) <= 1 && Math.abs(this.col - position[1]) <= 1;
+    }
+
+    pieceDraw() {
+        ctx.beginPath();
+        ctx.moveTo(0.35, 0.8);
+        ctx.lineTo(0.65, 0.8);
+        ctx.lineTo(0.65, 0.25);
+        ctx.lineTo(0.8, 0.1);
+        ctx.lineTo(0.2, 0.1);
+        ctx.lineTo(0.35, 0.25);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.2, 0.7);
+        ctx.lineTo(0.2, 0.9);
+        ctx.lineTo(0.8, 0.9);
+        ctx.lineTo(0.8, 0.7);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+}
+
+class Kirin extends _MovementComboPiece {
+    static {super._registerPieceType(this);}
+    static pieceName = "Kirin";
+    static pieceDescription = "Moves one space diagonally or jumps two spaces cardinally.";
+    static symbol = "FD";
+    static constituents = [Ferz, Dabbaba];
+
+    pieceDraw() {
+        ctx.beginPath();
+        ctx.moveTo(0.5, 0.1);
+        ctx.lineTo(0.1, 0.5);
+        ctx.lineTo(0.5, 0.9);
+        ctx.lineTo(0.9, 0.5);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+}
+
+class Toad extends _MovementComboPiece {
+    static {super._registerPieceType(this);}
+    static pieceName = "Toad";
+    static pieceDescription = "Jumps two or three spaces cardinally.";
+    static symbol = "DH";
+    static constituents = [Dabbaba, Threeleaper];
+
+    pieceDraw() {
+        ctx.beginPath();
+        ctx.moveTo(0.4, 0.25);
+        ctx.lineTo(0.6, 0.25);
+        ctx.arc(0.75, 0.25, 0.15, Math.PI, 0);
+        ctx.lineTo(0.9, 0.8);
+        ctx.arc(0.8, 0.8, 0.1, 0, Math.PI / 2);
+        ctx.lineTo(0.2, 0.9);
+        ctx.arc(0.2, 0.8, 0.1, Math.PI / 2, Math.PI);
+        ctx.lineTo(0.1, 0.25);
+        ctx.arc(0.25, 0.25, 0.15, Math.PI, 0);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+}
+
+class DragonHorse extends _MovementComboPiece {
+    static {super._registerPieceType(this);}
+    static pieceName = "Dragon Horse";
+    static pieceDescription = "Moves one space cardinally or any number of pieces diagonally.";
+    static symbol = "BW";
+    static constituents = [Bishop, Wazir];
+
+    pieceDraw() {
+        const NUM_SPIKES = 4;
+        ctx.beginPath();
+        ctx.moveTo(0.4, 0.8);
+        ctx.lineTo(0.7, 0.8);
+        ctx.lineTo(0.7, 0.4);
+        ctx.arc(0.4, 0.4, 0.3, 0, -Math.PI / 2, true);
+        ctx.lineTo(0.3, 0.1);
+        ctx.lineTo(0.2, 0.4);
+        ctx.lineTo(0.4, 0.4);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.2, 0.7);
+        ctx.lineTo(0.2, 0.9);
+        ctx.lineTo(0.8, 0.9);
+        ctx.lineTo(0.8, 0.7);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.7, 0.6);
+        ctx.lineTo(0.9, 0.65);
+        ctx.lineTo(0.7, 0.7);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        for (let i = 0; i < NUM_SPIKES; i++) {
+            ctx.beginPath();
+            let x = y => y <= 0.4 ? (0.3 ** 2 - (0.4 - y) ** 2) ** 0.5 + 0.4 : 0.7;
+            let topY = 0.5 - 0.1 * i;
+            ctx.moveTo(x(topY), topY);
+            ctx.lineTo(x(topY + 0.05) + 0.1, topY + 0.05);
+            ctx.lineTo(x(topY + 0.1), topY + 0.1);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+        }
     }
 }
