@@ -1047,3 +1047,149 @@ class DragonHorse extends _MovementComboPiece {
         }
     }
 }
+
+class Superpawn extends Piece {
+    static {super._registerPieceType(this);}
+    static pieceName = "Superpawn";
+    static pieceDescription = "Moves any number of spaces forward and captures any number of spaces diagonally.";
+    static symbol = "SP";
+
+    pieceCanMoveTo(board, position) {
+        let rowOffset = this.isWhite ? -1 : 1;
+        let destinationPiece = board.pieceAt(position);
+        if (![-1, 0, 1].some(coff => this.canSlideTo(board, position, [rowOffset, coff]))) return false;
+        if (position[1] !== this.col && !destinationPiece) return false;
+        if (position[1] === this.col && destinationPiece) return false;
+        return true;
+    }
+
+    pieceDraw() {
+        ctx.beginPath();
+        ctx.moveTo(0.5, 0.25);
+        ctx.lineTo(0.35, 0.7);
+        ctx.lineTo(0.2, 0.7);
+        ctx.lineTo(0.2, 0.9);
+        ctx.lineTo(0.8, 0.9);
+        ctx.lineTo(0.8, 0.7);
+        ctx.lineTo(0.65, 0.7);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.5, 0.1);
+        ctx.lineTo(0.65, 0.25);
+        ctx.lineTo(0.5, 0.4);
+        ctx.lineTo(0.35, 0.25);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+}
+
+class Archbishop extends Piece {
+    static {super._registerPieceType(this);}
+    static pieceName = "Archbishop";
+    static pieceDescription = "Can move any number of spaces diagonally, bouncing off the side of the board at most once.";
+    static symbol = "AR";
+
+    pieceCanMoveTo(board, position) {
+        if ([[1, 1], [1, -1], [-1, 1], [-1, -1]].some(direction => this.canSlideTo(board, position, direction)))
+            return true;
+        let edges = [];
+        for (let row = 0; row < board.rows; row++) {
+            for (let col of [0, board.cols - 1]) {
+                edges.push([row, col]);
+            }
+        }
+        for (let col = 0; col < board.cols; col++) {
+            for (let row of [0, board.rows - 1]) {
+                edges.push([row, col]);
+            }
+        }
+        for (let edge of edges) {
+            if (![[1, 1], [1, -1], [-1, 1], [-1, -1]].some(direction => this.canSlideTo(board, edge, direction))) continue;
+            let copy = this.copy();
+            copy.moveTo(edge);
+            if ([[1, 1], [1, -1], [-1, 1], [-1, -1]].some(direction => copy.canSlideTo(board, position, direction))) return true;
+        }
+        return false;
+    }
+
+    pieceDraw() {
+        const d = 0.15 * Math.sqrt(2) / 2;
+        ctx.beginPath();
+        ctx.moveTo(0.2, 0.7);
+        ctx.lineTo(0.2, 0.9);
+        ctx.lineTo(0.8, 0.9);
+        ctx.lineTo(0.8, 0.7);
+        ctx.lineTo(0.6, 0.7);
+        ctx.lineTo(0.6, 0.4);
+        ctx.lineTo(0.4, 0.4);
+        ctx.lineTo(0.4, 0.7);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.5, 0.3 - 2 * d);
+        ctx.lineTo(0.5 + d, 0.3 - d);
+        ctx.arc(0.5, 0.3, 0.15, -Math.PI / 4, -3 * Math.PI / 4, false);
+        ctx.lineTo(0.5, 0.3);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.4, 0.7);
+        ctx.lineTo(0.6, 0.5);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.6, 0.7);
+        ctx.lineTo(0.4, 0.5);
+        ctx.stroke();
+    }
+}
+
+class Grasshopper extends Piece {
+    static {super._registerPieceType(this);}
+    static pieceName = "Grasshopper";
+    static pieceDescription = "Can move any number of spaces cardinally or diagonally, landing immediately beyond a piece.";
+    static symbol = "GR";
+
+    pieceCanMoveTo(board, position) {
+        let direction = [Math.sign(position[0] - this.row), Math.sign(position[1] - this.col)];
+        let oneBefore = [position[0] - direction[0], position[1] - direction[1]];
+        let twoBefore = [position[0] - direction[0] * 2, position[1] - direction[1] * 2];
+        if (!this.canSlideTo(board, twoBefore, direction)) return false;
+        if (!board.pieceAt(oneBefore)) return false;
+        return true;
+    }
+
+    pieceDraw() {
+        const POINTS = 5;
+        const d = (0.8 - 0.2) / (POINTS - 1);
+        ctx.beginPath();
+        ctx.moveTo(0.3, 0.7);
+        ctx.lineTo(0.3, 0.2);
+        ctx.lineTo(0.7, 0.2);
+        ctx.lineTo(0.7, 0.7);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.2, 0.9);
+        for (let i = 1; i < POINTS; i++)
+            ctx.lineTo(0.2 + i * d, i % 2 ? 0.75 : 0.9);
+        ctx.lineTo(0.8, 0.6);
+        ctx.lineTo(0.2, 0.6);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0.2, 0.3);
+        ctx.lineTo(0.2, 0.1);
+        ctx.lineTo(0.8, 0.1);
+        ctx.lineTo(0.8, 0.3);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+}

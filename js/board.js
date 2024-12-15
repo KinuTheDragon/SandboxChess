@@ -199,7 +199,8 @@ class Board {
             this.removePiece(endPiece);
         }
         startPiece.moveTo(endPosition);
-        if (startPiece instanceof Pawn && startPiece.row === (startPiece.isWhite ? 0 : 7)) {
+        if ((startPiece instanceof Pawn || startPiece instanceof Superpawn) &&
+            startPiece.row === (startPiece.isWhite ? 0 : 7)) {
             // Do pawn promotion
             this.#isPawnPromotion = true;
             pawnPromotionSelection = 0;

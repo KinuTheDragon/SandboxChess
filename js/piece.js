@@ -103,7 +103,7 @@ class Piece {
     }
 
     static get pawnPromotionPieceTypes() {
-        return this.pieceTypes.filter(x => x !== Pawn && x !== King);
+        return this.pieceTypes.filter(x => x !== Pawn && x !== King && x !== Superpawn);
     }
 
     static fromSymbol(symbol) {
