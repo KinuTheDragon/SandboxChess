@@ -1,16 +1,24 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-const UPSCALE = 10;
+let UPSCALE;
 const UI_BAR_WIDTH = 200; // UI bar width in pixels
-const LINE_WIDTH = 0.25 / UPSCALE;
-const UI_SQUARE_SIZE = 750;
+const LINE_WIDTH = 0.025;
+let UI_SQUARE_SIZE;
 const SIZING_BOARD_ROWS = 8;
 const SIZING_BOARD_COLS = 8;
 
+const initialWidth = canvas.width;
+const initialHeight = canvas.height;
 canvas.style.width = canvas.width + "px";
-canvas.width *= UPSCALE;
 canvas.style.height = canvas.height + "px";
-canvas.height *= UPSCALE;
+
+function setUpscale(upscale) {
+    UPSCALE = upscale;
+    UI_SQUARE_SIZE = 75 * UPSCALE;
+    canvas.width = initialWidth * UPSCALE;
+    canvas.height = initialHeight * UPSCALE;
+    if (board) draw(board);
+}
 
 function getSquareSize(boardDimensions) {
     let [boardRows, boardCols] = boardDimensions;

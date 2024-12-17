@@ -57,3 +57,4 @@ function changeCols(offset) {
 }
 
 loadFromTextarea();
+setUpscale(document.getElementById("quality").value);

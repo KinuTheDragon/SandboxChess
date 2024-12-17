@@ -7,6 +7,8 @@
     <h1>Sandbox Chess: Play</h1>
     <a href="index.html">Back to home</a><br/>
     <canvas id="canvas" width="800" height="600"></canvas><br/>
+    <label for="quality">Quality:</label>
+    <input type="range" id="quality" min="1" max="5" value="5" step="1" oninput="setUpscale(this.value)" /><br/>
     <button onclick="loadFromTextarea()">Load setup from text</button>
     <button onclick="saveToTextarea()">Save setup to text</button><br/>
     <button onclick="toggleBoardEditMode()" id="editMode">Enable board edit mode</button>
