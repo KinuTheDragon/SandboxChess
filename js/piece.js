@@ -130,7 +130,7 @@ class Piece {
 
     toString(hasCoords = true) {
         return (
-            hasCoords ? coordsToName(this.position, board.rows) : "" +
+            (hasCoords ? coordsToName(this.position, board.rows) : "") +
             (this.isWhite ? this.constructor.symbol.toUpperCase() : this.constructor.symbol.toLowerCase()) +
             (this.#hasMoved ? "^" : "")
         );
