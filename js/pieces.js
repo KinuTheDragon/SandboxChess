@@ -1159,7 +1159,7 @@ class Grasshopper extends Piece {
         let oneBefore = [position[0] - direction[0], position[1] - direction[1]];
         let twoBefore = [position[0] - direction[0] * 2, position[1] - direction[1] * 2];
         if (!this.canSlideTo(board, twoBefore, direction)) return false;
-        if (!board.pieceAt(oneBefore)) return false;
+        if (board.pieceAt(twoBefore) || !board.pieceAt(oneBefore)) return false;
         return true;
     }
 

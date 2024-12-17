@@ -42,6 +42,7 @@ class Piece {
     descriptionText(hasCoords = true) {
         return (this.isWhite ? "White" : "Black") + " " + this.constructor.pieceName +
                (hasCoords ? (" @ " + coordsToName(this.position, board.rows)) : "") +
+               " (" + this.toString(hasCoords) + ")" +
                ":\n" + this.constructor.pieceDescription;
     }
 
@@ -127,9 +128,9 @@ class Piece {
         return piece;
     }
 
-    toString() {
+    toString(hasCoords = true) {
         return (
-            coordsToName(this.position, board.rows) +
+            hasCoords ? coordsToName(this.position, board.rows) : "" +
             (this.isWhite ? this.constructor.symbol.toUpperCase() : this.constructor.symbol.toLowerCase()) +
             (this.#hasMoved ? "^" : "")
         );
